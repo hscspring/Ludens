@@ -1,0 +1,18 @@
+# 运行时产物
+out/
+sessions/
+__pycache__/
+*.pyc
+
+# 日志
+*.log
+
+# 备份 / scratch
+*.bak
+
+# 密钥：key 只从环境变量读，绝不入库
+.env
+.env.*
+
+# 渲染图
+*.png
