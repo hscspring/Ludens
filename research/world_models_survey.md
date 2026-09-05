@@ -66,10 +66,11 @@ Ludens 图片壳 demo(`demo-image-shell` 分支)被判"顶多算玩具":每帧�
 | **Matrix-Game 2.0** | ✅**站住**:`inference_streaming.py` 是真交互流式脚本(vs batch `inference.py`);**25fps 实时**、键鼠输入;**单卡 ≥24GB,A100/H100 tested、不需多卡**;传**任意图**当起始世界;**MIT**。底座 SkyReels-V2(参数量未标)。**无叙事/文本控制**(证实需 LLM→action 桥)。**跨帧记忆 2.0 未提**(>1min 记忆是 3.0 的特性)。 | 维持首选 |
 | **DreamX-World-5B** | ✅**升级(B→已核实)**:Apache-2.0;权重已发(HF GD-ML/DreamX-World-5B/-5B-Cam,需另下 Wan2.2-5B-TI2V 底座);**单卡装得下**(1×H20 峰值 38/40/72G,80G 够);**NL 事件 + 相机驱动**;**几何记忆检索** + 训练"缓解 identity/背景/风格/颜色漂移"(比原判"无身份锚"强,但named-character 脸锁未明说)。**但非实时**:5s@720P 要 26s、60s 要 342s → **慢速批渲,正好回合制,不是 live**。 | 上调:比预期可信 |
 | **H3-World** | ⚠️**降级**:底座 MiniMax-H3 **33B / ~135GB,单卡 80G 装不下**(默认 4 卡);`infer.py` **批渲** 5.2s、无实时 loop;控制是**移动预设**(still/forward/strafe/pan→latent 语言指令),`--scene-prompt` 静态,**自由叙事直驱"未说明"** → 实为**移动世界模型,非叙事驱动**;**无 LICENSE 文件**;LoRA 权重已发(hf DANNY621/H3-World step-10000.safetensors,65.6M)。 | 下调:比 memory 预期弱 |
+| **JoyAI-Echo-1.5** | ✅**黑马 + 纠错**:实为**两个项目**——**Echo-WM**(交互世界模型!LTX-2.3 底、`echo_wm/inference_wm.py` Gradio demo、导航→6-DoF 相机、**视频+环境音+音乐+语音齐生**)+ **Echo-LongVideo**(10+min 多镜批渲)。**反幻灯片机制全场最强**:"composable cross-shot memory" 跨镜聚合视觉证据 + speaker cue,**同锁角色外形与嗓音身份**;**唯一带语音**。权重已发(HF,62750 下载)。许可=**LTX-2 Community License**(学术/非商用,够用)。**未知:显存/FPS 全无数**(FP8/TensorRT 是 roadmap 非现货)、Director Agent 接口未述。 | 上调:从"纯 OFFLINE"改判,含交互 WM 分支 |
 
 ### 剩余待核实(下一步,按需)
 
-Matrix-Game 参数量/3.0 单卡实时 · JoyAI-Echo-1.5(62750 下载,显然是真热门,值得深挖)· Incantation 权重是否真未发 ·
+Matrix-Game 参数量/3.0 单卡实时 · **JoyAI-Echo 显存/FPS**(README/arXiv 均未标,需查 HF 或子目录 README)· Incantation 权重是否真未发 ·
 身份适配器(SlotMem/Memento/IAMFlow)实测集成难度 · LingBot 1.3B 单卡变体是否发布 · **LLM→action 桥可行性**(Matrix-Game action 格式能否被 LLM 稳定翻译)。
 
 ---
@@ -132,7 +133,7 @@ Matrix-Game 参数量/3.0 单卡实时 · JoyAI-Echo-1.5(62750 下载,显然是�
 | **DreamX-World-5B**(高德 AMAP) | 文本事件 5 级 + 相机 | 5B/Apache、beat-pace、**几何位置记忆**(无角色身份锚,重入画漂脸) | ⚠️2606.16993 · github AMAP-ML/DreamX-World · hf GD-ML/DreamX-World-5B |
 | **Incantation**(SJTU+HKU+NV) | **逐帧 0.25s 逐角色 NL** | 19.7FPS/480p、2h rollout、语义跨角色迁移;**无权重(仅数据集)** | ⚠️2605.18601 |
 | **H3-World**(腾讯+NUS) | 键位→组合文本指令绑时间区间 | LoRA 65.6M/Apache 开;**底座 MiniMax-H3 33B**(单卡 80G 边缘) | ⚠️2609.01560 · github Danzer1xxxxChan/H3-World · **=memory 里的模板** |
-| **JoyAI-Echo-1.5**(京东) | 每 shot 文本+跨 shot 记忆库 | 基于 LTX-2.3,非商用可用,**视觉+声音身份跨 shot**;OFFLINE | ⚠️2608.23383 · github jd-opensource/JoyAI-Echo |
+| **JoyAI-Echo-1.5**(京东)**→已深核,见"核实结果"** | Echo-WM 导航/相机 + Echo-LongVideo 多镜文本 | LTX-2.3 底,LTX-2 Community 非商用,**同锁外形+嗓音**;**含交互 WM 分支(非纯 OFFLINE)** | ✅2608.23383 · github jd-opensource/JoyAI-Echo |
 
 ### B2. 身份适配器(补"锁脸",挂 Wan2.1/2.2 底座)
 
