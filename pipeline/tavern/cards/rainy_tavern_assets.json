@@ -1,0 +1,269 @@
+{
+  "assets": {
+    "width": 672,
+    "height": 384,
+    "character_region": [
+      100,
+      8,
+      330,
+      380
+    ],
+    "plate": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/initial/background.webp",
+    "initial": {
+      "frame": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/initial/frame.webp",
+      "background": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/initial/background.webp",
+      "positions": {
+        "crate": 0
+      },
+      "objects": {
+        "crate": {
+          "sprite": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/initial/crate.webp",
+          "polygon": [
+            [
+              254,
+              222
+            ],
+            [
+              252,
+              270
+            ],
+            [
+              256,
+              274
+            ],
+            [
+              298,
+              294
+            ],
+            [
+              303,
+              295
+            ],
+            [
+              306,
+              293
+            ],
+            [
+              316,
+              292
+            ],
+            [
+              330,
+              292
+            ],
+            [
+              392,
+              287
+            ],
+            [
+              404,
+              284
+            ],
+            [
+              408,
+              278
+            ],
+            [
+              410,
+              271
+            ],
+            [
+              412,
+              254
+            ],
+            [
+              411,
+              250
+            ],
+            [
+              413,
+              246
+            ],
+            [
+              414,
+              233
+            ],
+            [
+              408,
+              230
+            ],
+            [
+              382,
+              223
+            ],
+            [
+              376,
+              223
+            ],
+            [
+              346,
+              215
+            ],
+            [
+              332,
+              215
+            ],
+            [
+              326,
+              218
+            ],
+            [
+              311,
+              216
+            ],
+            [
+              263,
+              220
+            ]
+          ],
+          "released": true
+        }
+      }
+    },
+    "objects": {
+      "crate": {
+        "subject": "wooden crate and ALL old ledgers inside it",
+        "min_dx": 0,
+        "max_dx": 64,
+        "slope": 0.45,
+        "origin_x": 333.0
+      }
+    },
+    "expression_region": [
+      210,
+      42,
+      286,
+      144
+    ],
+    "regions": {
+      "towels": [
+        [
+          536,
+          281
+        ],
+        [
+          581,
+          266
+        ],
+        [
+          671,
+          280
+        ],
+        [
+          671,
+          330
+        ],
+        [
+          558,
+          330
+        ],
+        [
+          538,
+          317
+        ]
+      ],
+      "window": [
+        [
+          386,
+          10
+        ],
+        [
+          665,
+          10
+        ],
+        [
+          665,
+          245
+        ],
+        [
+          421,
+          206
+        ],
+        [
+          390,
+          140
+        ]
+      ]
+    },
+    "spatial": {
+      "plate": "/static/crate-interaction-20260923/background.png",
+      "outline": [
+        [
+          190,
+          0
+        ],
+        [
+          282,
+          0
+        ],
+        [
+          280,
+          82
+        ],
+        [
+          310,
+          97
+        ],
+        [
+          337,
+          139
+        ],
+        [
+          345,
+          208
+        ],
+        [
+          325,
+          243
+        ],
+        [
+          276,
+          257
+        ],
+        [
+          271,
+          310
+        ],
+        [
+          281,
+          384
+        ],
+        [
+          82,
+          384
+        ],
+        [
+          88,
+          301
+        ],
+        [
+          93,
+          237
+        ],
+        [
+          105,
+          181
+        ],
+        [
+          112,
+          141
+        ],
+        [
+          130,
+          110
+        ],
+        [
+          176,
+          89
+        ]
+      ]
+    }
+  },
+  "video": {
+    "url": "http://127.0.0.1:8801",
+    "voice": "a warm, steady, low male voice",
+    "ffmpeg": "research/out/video_quality_20260922/bin/ffmpeg",
+    "segmentation_model": "/mnt/sv0/sean/models/sam2.1-hiera-tiny",
+    "lora": "/mnt/sv0/sean/models/MiniMax-H3-Turbo/minimax_h3_fl2v_turbo_8step_v1.0_bf16.safetensors"
+  }
+}

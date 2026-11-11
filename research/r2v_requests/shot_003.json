@@ -1,0 +1,12 @@
+{
+  "work_id": "ludens-denji-demo",
+  "shot_id": "shot_003",
+  "prompt": "In the Aki's apartment hallway (night); Cramped apartment corridor with fluorescent tube flickering over peeling wallpaper. Mood: tense comedic irritation. ID_A is Denji: Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie. Voice: brash raspy youthful tenor. ID_B is Power: Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth. Voice: loud shrill theatrical soprano. ID_C is Aki Hayakawa: Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit. Voice: low measured serious baritone. ID_B Kicks the front door wide open and stomps across the tatami with muddy shoes. — \"Behold, my new kingdom! Where is the blood throne?!\" ID_C Pinches the bridge of his nose, his voice dropping into a deadly whisper. — \"Take off your shoes. Immediately.\" ID_A Peers past Aki into the kitchen, rubbing his stomach eagerly. — \"Man, if that creepy guy is training us tomorrow, I need a ton of toast first.\" Camera: medium shot, static; dim hallway lit by sickly buzzing fluorescent tube with fresh muddy footprints staining clean tatami mats. Everyone keeps the same face, hair, and clothes throughout; realistic live-action, lips synced to speech. No subtitles, captions, on-screen text, or writing.",
+  "condition_img": null,
+  "memory_slots": [],
+  "num_frames": 241,
+  "width": 1280,
+  "height": 736,
+  "seed": 42,
+  "duration_sec": 9.64
+}

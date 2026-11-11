@@ -1,0 +1,229 @@
+{
+  "card_id": "denji",
+  "roster": {
+    "Denji": {
+      "appearance": "Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie.",
+      "voice": "brash raspy youthful tenor"
+    },
+    "Makima": {
+      "appearance": "Elegant mid-20s woman with long reddish hair in a single braid, distinctive golden ringed eyes, wearing a tailored black suit.",
+      "voice": "soft composed and chillingly gentle mezzo-soprano"
+    },
+    "Power": {
+      "appearance": "Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth.",
+      "voice": "loud shrill theatrical soprano"
+    },
+    "Aki Hayakawa": {
+      "appearance": "Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit.",
+      "voice": "low measured serious baritone"
+    },
+    "Pochita": {
+      "appearance": "Small round orange canine-like devil with short legs, a pull cord tail, and a large chainsaw blade protruding from its forehead.",
+      "voice": "high squeaky and affectionate whimper"
+    },
+    "Himeno": {
+      "appearance": "Mid-20s woman with short black hair, an eyepatch over her right eye, and a relaxed, casual suit style.",
+      "voice": "smoky relaxed and playful contralto"
+    },
+    "Kobeni Higashiyama": {
+      "appearance": "Petite 5'1 woman with dark hair in two small barrettes and a messy ponytail, wide nervous eyes, and a frantic expression.",
+      "voice": "trembling high-pitched anxious soprano"
+    },
+    "Kishibe": {
+      "appearance": "Rugged older man in his 50s with grizzled hair, deep facial scars, a stitched mouth corner, and a perpetually deadpan gaze.",
+      "voice": "gravelly dry low baritone"
+    },
+    "Angel Devil": {
+      "appearance": "Slender and androgynous with shoulder-length reddish hair, an ethereal halo floating above their head, and large feathered white wings.",
+      "voice": "soft airy lethargic tenor"
+    },
+    "Reze": {
+      "appearance": "Athletic 17-year-old girl with dark purple hair, an alluring soft smile, and a choker around her neck.",
+      "voice": "bright charming and coy mezzo-soprano"
+    },
+    "Beam": {
+      "appearance": "Muscular humanoid fiend with a large black-and-grey shark head featuring a dorsal fin and sharp rows of teeth.",
+      "voice": "frenzied boisterous and guttural tenor"
+    },
+    "Quanxi": {
+      "appearance": "Tall athletic woman with long silver-white hair tied back, wearing a black eyepatch over her right eye.",
+      "voice": "flat quiet and detached contralto"
+    }
+  },
+  "shots": [
+    {
+      "index": 1,
+      "turns": [
+        {
+          "role": "state",
+          "content": {
+            "location": "Public Safety Devil Hunters HQ briefing room",
+            "time": "Morning",
+            "mood": "Tense and unruly",
+            "environment": "Flickering cold fluorescent lights, scuffed metal briefing table, thin haze of cigarette smoke",
+            "characters": {
+              "Denji": {
+                "status": "Wary, glaring defiantly while rubbing his neck",
+                "appearance": "Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie.",
+                "voice": "brash raspy youthful tenor"
+              },
+              "Power": {
+                "status": "Smug, chest puffed out in chaotic triumph",
+                "appearance": "Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth.",
+                "voice": "loud shrill theatrical soprano"
+              },
+              "Aki Hayakawa": {
+                "status": "Exhausted, pinching the bridge of his nose",
+                "appearance": "Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit.",
+                "voice": "low measured serious baritone"
+              }
+            }
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "beats": [
+              {
+                "who": "Power",
+                "line": "Gwahaha! Bow, mongrel! Even the silent monster ignores your pathetic squeaks!",
+                "action": "Stands atop the steel table with fists planted on her hips, grinning arrogantly down at Denji."
+              },
+              {
+                "who": "Denji",
+                "line": "Shut up, horned freak! I'm gonna beat tomorrow's training so hard everybody cries!",
+                "action": "Bares his sharp teeth and shakes a clenched fist back at Power."
+              },
+              {
+                "who": "Aki Hayakawa",
+                "line": "Shut up, both of you. You're assigned to my apartment. Move.",
+                "action": "Grabs the scruff of Denji's collar with one hand while stubbing out his cigarette in a metal tray."
+              }
+            ]
+          }
+        }
+      ],
+      "camera": {
+        "shot_size": "medium shot",
+        "camera_move": "low-angle slow push-in",
+        "environment": "smoky fluorescent glare catching the scuffed metal table beneath Power's boots"
+      }
+    },
+    {
+      "index": 2,
+      "turns": [
+        {
+          "role": "state",
+          "content": {
+            "location": "Public Safety Devil Hunters HQ hallway",
+            "time": "Evening",
+            "mood": "Tense",
+            "environment": "Harsh green-tinted fluorescent corridor with concrete walls and distant footsteps",
+            "characters": {
+              "Denji": {
+                "status": "intimidated yet defensive",
+                "appearance": "Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie.",
+                "voice": "brash raspy youthful tenor"
+              },
+              "Power": {
+                "status": "smug and chaotic",
+                "appearance": "Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth.",
+                "voice": "loud shrill theatrical soprano"
+              },
+              "Aki Hayakawa": {
+                "status": "exhausted and strict",
+                "appearance": "Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit.",
+                "voice": "low measured serious baritone"
+              }
+            }
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "beats": [
+              {
+                "who": "Power",
+                "line": "I ride in front! The greatest driver in Japan demands shotgun!",
+                "action": "Shoves past Denji roughly, barging toward the exit."
+              },
+              {
+                "who": "Denji",
+                "line": "Hey! Aki, tell me about that freak in the corner! Are they really that strong?!",
+                "action": "Tugs Aki's sleeve frantically, glancing back nervously toward the briefing doors."
+              },
+              {
+                "who": "Aki Hayakawa",
+                "line": "Hands off. And if you value your neck, you won't bring them up again.",
+                "action": "Swats Denji's hand away and keeps walking with a dark scowl."
+              }
+            ]
+          }
+        }
+      ],
+      "camera": {
+        "shot_size": "medium shot",
+        "camera_move": "handheld follow",
+        "environment": "flickering green fluorescent corridor casting hard shadows against scuffed concrete"
+      }
+    },
+    {
+      "index": 3,
+      "turns": [
+        {
+          "role": "state",
+          "content": {
+            "location": "Aki's apartment hallway",
+            "time": "night",
+            "mood": "tense comedic irritation",
+            "environment": "Cramped apartment corridor with fluorescent tube flickering over peeling wallpaper",
+            "characters": {
+              "Denji": {
+                "status": "intrigued and defensive, holding dirty shoes",
+                "appearance": "Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie.",
+                "voice": "brash raspy youthful tenor"
+              },
+              "Power": {
+                "status": "proudly shoving past into the doorway",
+                "appearance": "Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth.",
+                "voice": "loud shrill theatrical soprano"
+              },
+              "Aki Hayakawa": {
+                "status": "deeply exhausted, keys jingling in hand",
+                "appearance": "Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit.",
+                "voice": "low measured serious baritone"
+              }
+            }
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "beats": [
+              {
+                "who": "Power",
+                "line": "Behold, my new kingdom! Where is the blood throne?!",
+                "action": "Kicks the front door wide open and stomps across the tatami with muddy shoes."
+              },
+              {
+                "who": "Aki Hayakawa",
+                "line": "Take off your shoes. Immediately.",
+                "action": "Pinches the bridge of his nose, his voice dropping into a deadly whisper."
+              },
+              {
+                "who": "Denji",
+                "line": "Man, if that creepy guy is training us tomorrow, I need a ton of toast first.",
+                "action": "Peers past Aki into the kitchen, rubbing his stomach eagerly."
+              }
+            ]
+          }
+        }
+      ],
+      "camera": {
+        "shot_size": "medium shot",
+        "camera_move": "static",
+        "environment": "dim hallway lit by sickly buzzing fluorescent tube with fresh muddy footprints staining clean tatami mats"
+      }
+    }
+  ]
+}

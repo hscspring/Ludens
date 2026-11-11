@@ -1,0 +1,44 @@
+[
+  {
+    "file": "music.mp3",
+    "original": "first_light_particles.wav",
+    "title": "First Light Particles",
+    "author": "Yoiyami",
+    "license": "CC0-1.0",
+    "source": "https://opengameart.org/content/first-light-particles-%E2%80%93-cc0-atmospheric-pianoambient-track",
+    "changes": "Encoded as 96 kbps MP3, 44100 Hz; full track retained."
+  },
+  {
+    "file": "rain.mp3",
+    "original": "rain_on_window_loop.wav",
+    "title": "Rain on Window Loop",
+    "author": "alxl",
+    "license": "CC0-1.0",
+    "source": "https://opengameart.org/content/rain-on-window-loop",
+    "changes": "Encoded as 96 kbps MP3, 44100 Hz; full loop retained."
+  },
+  {
+    "file": "calm.mp3",
+    "title": "Calm Ambient 1 (Synthwave 4k)",
+    "author": "The Cynic Project / cynicmusic.com / pixelsphere.org",
+    "license": "CC0-1.0",
+    "source": "https://opengameart.org/content/calm-ambient-1-synthwave-4k",
+    "changes": "Full track retained; normalized to -21 LUFS, encoded as 96 kbps MP3."
+  },
+  {
+    "file": "warm.mp3",
+    "title": "Sirens in Darkness",
+    "author": "The Cynic Project / cynicmusic.com / pixelsphere.org",
+    "license": "CC0-1.0",
+    "source": "https://opengameart.org/node/73985",
+    "changes": "Full track retained; normalized to -21 LUFS, encoded as 96 kbps MP3."
+  },
+  {
+    "file": "tense.mp3",
+    "title": "Tension",
+    "author": "Komiku / Loyalty Freak Music",
+    "license": "CC0-1.0",
+    "source": "https://opengameart.org/content/tension",
+    "changes": "Full track retained; normalized to -21 LUFS, encoded as 96 kbps MP3."
+  }
+]

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ludens · 评测</title>
+<style>
+*{box-sizing:border-box}body{background:#171513;color:#eee6db;font:16px/1.6 system-ui;margin:auto;max-width:1564px;padding:32px}h1{font-size:32px;margin:0 0 8px}p{color:#c3b9ac}nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin:28px 0 20px}a.test{display:block;text-decoration:none;font:inherit;text-align:left;color:inherit;background:#25211d;border:1px solid #4a4035;border-radius:12px;padding:20px;cursor:pointer}a.test:hover{border-color:#aa8a5d}a.test:focus-visible{outline:2px solid #edbf79;outline-offset:4px}strong{display:block;font-size:21px;margin-bottom:8px}a.test span{display:block;color:#c3b9ac}small{color:#aaa}@media(max-width:600px){body{padding:20px}h1{font-size:28px}}
+</style>
+<header><h1>Ludens 评测</h1><p>图片、视频、人物动作与场景交互的测试目录。每张卡片进入对应的独立评测页。</p><a href="/">← 返回 LUDENS</a></header>
+<nav aria-label="选择评测项目">
+<a class="test" href="../closed-model-eval-20261016/index.html"><strong>闭源模型 · 速度优先初筛</strong><span>22 个文本 / 图片 / 视频 / 音乐 / TTS 候选</span><span>实际测速、失败原因与可播放样片；对照当前本地服务。</span></a>
+<a class="test" href="initial-reference.html"><strong>初始图 + 当前状态 · 静态切片</strong><span>收起领带 / 放在座位 / 重新戴好</span><span>每张从初始图生成，同时检查物品栏与故事手记。</span></a>
+<a class="test" href="identity-reference.html"><strong>Hozumi · 多轮身份保持</strong><span>单参考 / 双参考 · 三轮表情与人物局部</span><span>加测领带移除状态：修正脸时会不会把物品恢复？</span></a>
+<a class="test" href="../art-direction-20261014/index.html"><strong>Sumi / FLUX · 图片质量与速度</strong><span>人物与场景对照 · 表情小样 · 两种尺寸测速</span><span>对比质感、物品保持与实际请求耗时。</span></a>
+<a class="test" href="cg-style.html"><strong>游戏 CG · 画风参考测试</strong><span>新增三角色外貌迁移与失败对照</span><span>看材质、五官和光影，区分画风迁移与沿用参考面貌。</span></a>
+<a class="test" href="../minimax-8gpu-20260925/index.html"><strong>MiniMax · 本机八卡测速</strong><span>复杂三轮 · 共享负载下的延迟与画质</span><span>Sean整体认可 · 无明显瑕疵 · 后续回应9–12秒。</span></a>
+<a class="test" href="../ltx-control-retest-20260925/index.html"><strong>LTX · 方向与站位复测</strong><span>拉近箱子 → 原地指毛巾</span><span>已完成 · 首段关键问题仍在，停止调提示。</span></a>
+<a class="test" href="../complex-continuity-20260925/index.html?v=ltx2"><strong>复杂三轮 · MiniMax / LTX</strong><span>挪箱 → 指毛巾 → 转回交流</span><span>同配置连续生成，动作与状态保持分开验收。</span></a>
+<a class="test" href="../state-continuity-20260925/index.html"><strong>连续互动 · 挪箱后接着回应</strong><span>MiniMax 本条通过；LTX 备选，Joy 暂缓</span><span>保留实际外观，检验状态是否延续。</span></a>
+<a class="test" href="../actual-handoff-20260925/index.html"><strong>实际落点 → 继续操作</strong><span>Joy / LTX · 播放结束即可挪箱</span><span>跟踪落点、补桌面、刷新保留；方向成败单独记录。</span></a>
+<a class="test" href="../action-wording-20260925/index.html"><strong>箱体朝向措辞 · 小样复测</strong><span>Joy 1 条 / LTX 1 条 · 已生成</span><span>单独验证措辞是否导致竖箱、转箱。</span></a>
+<a class="test" href="../action-control-20260924/index.html"><strong>新实验 · 木箱动作约束</strong><span>MiniMax 3 条 / Joy 2 条 / LTX 2 条 · 已评价</span><span>相同起点与目标，文字约束对照首尾帧输入。</span></a>
+<a class="test" href="../acceleration-20260924/index.html"><strong>三模型加速 · 质量与等待时间</strong><span>MiniMax / Joy / LTX · 18 段已生成</span><span>原版与加速版，完整三轮及逐段耗时。</span></a>
+<a class="test" href="../crate-minimax-20260924/index.html"><strong>可玩小场景 · MiniMax 酒馆</strong><span>视频交接 → 点选挪箱 → 自由交流</span><span>第一步已可玩；新动作视频生成是下一步。</span></a>
+<a class="test" href="../story-eval-20260924/index.html"><strong>三轮故事 · 整体效果与推理耗时</strong><span>LTX Full、Joy、MiniMax、Echo Flash、LTX Distilled</span><span>183 / GPU 6 顺序生成，逐段更新；不重置中间画面。</span></a>
+<a class="test" href="../speech-motion-20260924/index.html"><strong>动作控制 · 转头要求未完成</strong><span>两版提示，同图、同语音、同种子</span><span>原片与完整场景对照；返回动作尚未生成。</span></a>
+<a class="test" href="../speech-continuity-20260924/index.html"><strong>新实验 · 连续两句衔接</strong><span>上一句末帧 → 下一句回应 → 完整连续播放</span><span>并排查看切换前后；人物姿势和细节仍有变化。</span></a>
+<a class="test" href="../speech-driven-20260924/index.html"><strong>新实验 · 本句语音驱动人物</strong><span>真实语音 → 人物说话 → 完整酒馆</span><span>原片、提取层与完整合成；待人工验收。</span></a>
+<a class="test" href="../crate-fps-20260923/index.html"><strong>新实验 · 低帧率与人物回贴</strong><span>24 FPS 对照 16 FPS · 原片／完整合成切换</span><span>看人物动作、边缘与耗时，不只看透明预览。</span></a>
+<a class="test" href="../crate-live-20260923/index.html"><strong>新实验 · 自由互动与语音</strong><span>即时操作 → 真实文字回应 → 异步语音</span><span>不再是固定步骤；箱子的位置会被记住。</span></a>
+<a class="test" href="../crate-handoff-20260923/index.html?model=ltx_recontact"><strong>木箱交互 · 从新位置再次搬箱</strong><span>接触 → 移动 → 松手 → 玩家继续操作</span><span>Sean 已认可观感；保留作基准，方向偏差仍存在。</span></a>
+<a class="test" href="../crate-three-turns-20260923/index.html"><strong>新实验 · 连续三轮交互</strong><span>两次挪箱，两次新回应，顺序承接</span><span>Sean：整体自然、后两轮未碰箱；播放卡顿待优化。</span></a>
+<a class="test" href="../crate-handoff-20260923/index.html?model=ltx_b_right_original"><strong>新实验 · 原片播放后继续交互</strong><span>原片 → 松手 → 可独立移动木箱</span><span>Sean：两方案效果接近；毛边在当前场景可接受。</span></a>
+<a class="test" href="../crate-edges-20260923/index.html"><strong>箱子与手部 · 透明诊断</strong><span>新增人物补强前后同步比较</span><span>Sean：原片仍更好；已定位 B 向右箱子上沿漏抠。</span></a>
+<a class="test" href="../crate-handoff-20260923/index.html?model=ltx_a_left"><strong>木箱交互 · 换位置与方向（问题对照）</strong><span>两个起点 × 左右要求 · 共 4 条</span><span>Sean：四条均向右，边缘飘忽，观感不如上一轮。</span></a>
+<a class="test" href="../crate-continuation-20260923/index.html"><strong>木箱交互 · 连续两轮</strong><span>补全箱角 → 玩家挪箱 → 角色接着回应</span><span>验证新位置、人物姿态和下一段画面的衔接。</span></a>
+<a class="test" href="../crate-handoff-20260923/index.html"><strong>木箱交互 · 松手后继续操作</strong><span>LTX 与 Joy 完整合成对照</span><span>共同视频层 → 松手拆层 → 点选移动 → 刷新保留。</span></a>
+<a class="test" href="../crate-push-20260923/index.html"><strong>木箱交互 · 推动与松手</strong><span>Joy 与 LTX Full 新动作对照</span><span>先看动作是否完成，再验证分层交接。</span></a>
+<a class="test" href="../crate-interaction-20260923/index.html"><strong>木箱交互 · 完整合成</strong><span>先看人与物品接触时的实际效果</span><span>两种合成、逐帧点击区域、视频与静态层交接。</span></a>
+<a class="test" href="../character-routes-20260923/index.html"><strong>人物与场景合成 · 第二轮</strong><span>5 个模型 × 2 条路线</span><span>输入、原片、人物提取、固定背景合成逐项对照。</span></a>
+<a class="test" href="../video-quality-20260922/index.html"><strong>首轮视频画质 · 已存档</strong><span>场景参考图 → 各模型生成视频</span><span>原片及 Sean、钦语评价；已选定 5 个模型继续测试。</span></a>
+<a class="test" href="../character-layers-20260922/index.html"><strong>视频后处理抠图</strong><span>整幅生成视频 → 提取人物层</span><span>看头发、衣服边缘，以及去掉物品后是否有缺损。</span></a>
+</nav>
+</html>

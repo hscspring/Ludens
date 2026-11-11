@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ludens · 创建故事</title>
+<link rel="stylesheet" href="/static/crate-live-20260923/room.css">
+<style>
+body{max-width:960px}header{align-items:flex-start}form{display:grid;gap:20px;padding:26px;background:#24201b;border:1px solid #453a2e;border-radius:12px}label{display:grid;gap:7px}textarea{width:100%;min-height:140px;resize:vertical;font:inherit;color:#eee6db;background:#171513;border:1px solid #675440;border-radius:8px;padding:12px}label small{font-size:13px}#progress{padding:20px;margin:20px 0;border:1px solid #675440;border-radius:12px}#enter{display:inline-block;margin:10px 0}button{justify-self:start}textarea:focus-visible{outline:2px solid #eec288}#created{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}#created a{margin:0;padding:10px;border:1px solid #675440;border-radius:8px}
+</style>
+<body>
+<header><div><small>LUDENS · 由设定进入故事</small><h1>创建一个可玩的场景</h1><p>填入角色、处境与开场，系统会准备画面和可以点选的事物。</p></div><a href="/">返回故事</a></header>
+<form id="create-form">
+  <label>角色设定 · personality<small>角色是谁、性格如何，以及与玩家的关系。</small><textarea name="personality" required maxlength="24000" placeholder="粘贴角色的原始设定"></textarea></label>
+  <label>场景 · scenario<small>可留空；如果开场白里已有场景，系统会一起理解。</small><textarea name="scenario" maxlength="24000" placeholder="眼前的环境与处境"></textarea></label>
+  <label>开场 · welcomeMessage<small>可以是完整长开场。系统会整理已经发生的事，从适合你回应的时刻开始。</small><textarea name="welcomeMessage" required maxlength="24000" placeholder="粘贴角色的开场白"></textarea></label>
+  <small>当前适合一个主要角色、一个固定空间的故事。可查看和交流；可独立移动的物品会按画面提供操作。</small>
+  <button id="submit" type="submit">生成场景</button>
+</form>
+<section id="progress" hidden aria-live="polite"><strong id="stage"></strong><p id="note"></p><a id="enter" hidden>进入这个故事 →</a></section>
+<p id="error" role="alert"></p>
+<h2>已有故事</h2><div id="created"></div>
+<script src="/static/roleplay/create.js"></script>
+</body></html>

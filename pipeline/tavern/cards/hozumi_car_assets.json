@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "width": 672,
+    "height": 384,
+    "character_region": [
+      35,
+      4,
+      315,
+      382
+    ],
+    "expression_region": [
+      133,
+      42,
+      226,
+      144
+    ],
+    "plate": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/hozumi/frame.webp",
+    "initial": {
+      "frame": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/hozumi/frame.webp",
+      "background": "/mnt/sv0/sean/Ludens/research/out/roleplay_live_20260925/media/hozumi/frame.webp",
+      "positions": {},
+      "objects": {}
+    },
+    "objects": {},
+    "regions": {
+      "window": [
+        [
+          507,
+          8
+        ],
+        [
+          670,
+          8
+        ],
+        [
+          670,
+          165
+        ],
+        [
+          528,
+          140
+        ]
+      ],
+      "necklace": [
+        [
+          166,
+          147
+        ],
+        [
+          188,
+          147
+        ],
+        [
+          188,
+          172
+        ],
+        [
+          166,
+          172
+        ]
+      ],
+      "tie": [
+        [
+          166,
+          173
+        ],
+        [
+          193,
+          173
+        ],
+        [
+          204,
+          270
+        ],
+        [
+          174,
+          277
+        ]
+      ]
+    },
+    "spatial": {}
+  },
+  "video": {
+    "url": "http://127.0.0.1:8801",
+    "voice": "a low, slightly husky adult female voice with a flat, restrained delivery",
+    "ffmpeg": "research/out/video_quality_20260922/bin/ffmpeg",
+    "segmentation_model": "/mnt/sv0/sean/models/sam2.1-hiera-tiny",
+    "lora": "/mnt/sv0/sean/models/MiniMax-H3-Turbo/minimax_h3_fl2v_turbo_8step_v1.0_bf16.safetensors",
+    "ambience": "quiet enclosed car cabin ambience"
+  }
+}

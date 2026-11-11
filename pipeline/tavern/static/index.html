@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ludens · 雨夜打烊</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <svg
+      class="definitions"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="metal" x2="1" y2=".4">
+          <stop stop-color="#514b3e" />
+          <stop offset=".4" stop-color="#a49b76" />
+          <stop offset=".65" stop-color="#716f5b" />
+          <stop offset="1" stop-color="#373a35" />
+        </linearGradient>
+        <linearGradient id="wood" x2="0" y2="1">
+          <stop stop-color="#9e6639" />
+          <stop offset="1" stop-color="#442719" />
+        </linearGradient>
+        <linearGradient id="cloth" x2="0" y2="1">
+          <stop stop-color="#eee0ba" />
+          <stop offset="1" stop-color="#a69676" />
+        </linearGradient>
+        <symbol id="bucket-art" viewBox="0 0 180 180">
+          <ellipse
+            cx="90"
+            cy="164"
+            rx="62"
+            ry="11"
+            fill="#130e09"
+            opacity=".5"
+          />
+          <path
+            d="M28 53 L43 147 Q90 173 137 147 L152 53"
+            fill="url(#metal)"
+            stroke="#c4ab77"
+            stroke-width="3"
+          />
+          <ellipse
+            cx="90"
+            cy="53"
+            rx="62"
+            ry="20"
+            fill="#302d26"
+            stroke="#d6ba7e"
+            stroke-width="4"
+          />
+          <ellipse
+            class="bucket-water"
+            cx="90"
+            cy="55"
+            rx="51"
+            ry="13"
+            fill="#8aabab"
+            opacity=".8"
+          />
+          <path
+            d="M32 66 Q8 152 92 164 Q164 150 146 66"
+            fill="none"
+            stroke="#322c22"
+            stroke-width="7"
+          />
+          <path
+            d="M32 66 Q8 152 92 164 Q164 150 146 66"
+            fill="none"
+            stroke="#c3ac7d"
+            stroke-width="3"
+          />
+          <path
+            d="M45 90 Q90 108 139 90 M48 127 Q90 145 132 127"
+            fill="none"
+            stroke="#d3c191"
+            opacity=".3"
+          />
+        </symbol>
+        <symbol id="crate-art" viewBox="0 0 240 165">
+          <ellipse
+            cx="123"
+            cy="153"
+            rx="112"
+            ry="10"
+            fill="#190f08"
+            opacity=".5"
+          />
+          <path
+            d="M10 44 L166 18 230 45 73 77Z"
+            fill="#342015"
+            stroke="#b3814f"
+            stroke-width="4"
+          />
+          <path
+            d="M10 44 L73 77 73 149 15 115Z"
+            fill="#704524"
+            stroke="#3d2416"
+            stroke-width="4"
+          />
+          <path
+            d="M73 77 L230 45 224 119 73 149Z"
+            fill="url(#wood)"
+            stroke="#3d2416"
+            stroke-width="4"
+          />
+          <path
+            d="M75 101 L228 69 M74 124 L226 92 M14 68 L72 101 M15 90 L72 124"
+            stroke="#2e1b11"
+            stroke-width="4"
+          />
+          <path
+            d="M27 49 L31 122 M60 68 L61 139 M88 76 L87 143 M208 53 L205 123"
+            stroke="#ad7943"
+            stroke-width="10"
+          />
+          <path
+            d="M133 85 L171 77"
+            stroke="#26170f"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+        </symbol>
+        <symbol id="ledger-art" viewBox="0 0 180 120">
+          <path
+            d="M17 35 L128 9 168 76 54 106Z"
+            fill="#352219"
+            stroke="#1e110e"
+            stroke-width="4"
+          />
+          <path d="M21 36 L127 14 160 72 54 100Z" fill="#dfc99b" />
+          <path
+            d="M17 26 L126 3 164 64 53 92Z"
+            fill="#713a2f"
+            stroke="#b7894c"
+            stroke-width="3"
+          />
+          <path
+            d="M30 29 L122 10 152 61 57 83Z"
+            fill="none"
+            stroke="#c29552"
+            stroke-width="1.5"
+          />
+          <path d="M18 27 L53 92 54 105 17 40Z" fill="#43221f" />
+          <path
+            d="M55 96 L158 72 M57 101 L159 77"
+            stroke="#9c8561"
+            stroke-width="1.5"
+          />
+        </symbol>
+        <symbol id="towel-art" viewBox="0 0 190 110">
+          <ellipse
+            cx="98"
+            cy="92"
+            rx="84"
+            ry="10"
+            fill="#21180e"
+            opacity=".35"
+          />
+          <path d="M10 52 L134 14 181 51 172 81 51 105 8 77Z" fill="#99876b" />
+          <path
+            d="M10 41 L134 4 182 42 174 67 51 94 8 66Z"
+            fill="url(#cloth)"
+            stroke="#c6af83"
+            stroke-width="2"
+          />
+          <path
+            d="M94 17 L141 57 136 76 M104 14 L151 54 146 74"
+            fill="none"
+            stroke="#985e4c"
+            stroke-width="5"
+            opacity=".8"
+          />
+          <path
+            d="M12 59 L50 82 173 56"
+            fill="none"
+            stroke="#f1dbac"
+            stroke-width="3"
+            opacity=".65"
+          />
+        </symbol>
+      </defs>
+    </svg>
+    <header>
+      <a class="brand" href="/">LUDENS<span>片刻之间，世界因你而变</span></a>
+      <div class="header-actions">
+        <span class="weather">雨夜 · 打烊之后</span
+        ><button id="history-button" class="quiet">回看这段经历 ↗</button
+        ><button id="restart" class="quiet">重新开始</button>
+      </div>
+    </header>
+    <main>
+      <section class="world-panel">
+        <div class="scene-heading">
+          <div>
+            <p class="eyebrow">AFTER HOURS</p>
+            <h1>雨还没有停。</h1>
+          </div>
+          <p>先做点什么，也可以先看看他。</p>
+        </div>
+        <div id="scene" class="scene" aria-label="可互动的酒馆场景"></div>
+        <div class="world-status" aria-label="酒馆状态">
+          <span id="water-status"></span><span id="records-status"></span
+          ><span id="counter-status"></span>
+        </div>
+        <p class="scene-tip">
+          点选桶、木箱、账册或毛巾，再选择你想做的事。角色回应时也可以继续操作。
+        </p>
+        <div id="notice" role="status" aria-live="polite"></div>
+      </section>
+      <aside>
+        <section class="object-panel">
+          <p class="eyebrow">你注意到了</p>
+          <h2 id="object-title">窗边的漏水</h2>
+          <p id="object-description"></p>
+          <div id="object-actions"></div>
+        </section>
+        <section class="character-panel">
+          <div class="character-heading">
+            <div class="portrait"></div>
+            <div>
+              <h2>Cassian</h2>
+              <p id="npc-status">在你身旁</p>
+            </div>
+            <span id="thinking-dot"></span>
+          </div>
+          <div id="conversation" aria-live="polite"></div>
+          <div class="quick-actions">
+            <button id="help">请他搭把手</button
+            ><button id="watch">看看他会做什么</button>
+          </div>
+          <form id="chat">
+            <label for="message">和他说句话</label>
+            <div>
+              <input
+                id="message"
+                maxlength="1000"
+                placeholder="比如：你这么在意这些账册？"
+                autocomplete="off"
+              /><button type="submit" aria-label="发送">↗</button>
+            </div>
+          </form>
+        </section>
+      </aside>
+    </main>
+    <footer>
+      <span id="settled">不用急着寻找标准答案。你们可以一起想办法。</span
+      ><span>一个房间 · 两个人 · 一场雨</span>
+    </footer>
+    <dialog id="history">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">YOUR EVENING</p>
+          <h2>刚才发生的事</h2>
+        </div>
+        <button id="close-history" class="quiet">关闭 ×</button>
+      </div>
+      <div class="history-grid">
+        <div>
+          <div id="replay-scene" class="scene"></div>
+          <input
+            id="timeline"
+            type="range"
+            min="0"
+            max="0"
+            value="0"
+            aria-label="回看经历时间线"
+          />
+          <p id="replay-caption"></p>
+        </div>
+        <div>
+          <div id="history-list"></div>
+          <button id="generate-video" class="primary">
+            把这段经历生成短片
+          </button>
+          <p id="video-status">短片根据经历改编，生成期间仍可继续玩。</p>
+          <video id="replay-video" controls playsinline hidden></video>
+        </div>
+      </div>
+    </dialog>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>

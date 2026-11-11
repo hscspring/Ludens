@@ -1,0 +1,12 @@
+{
+  "work_id": "ludens-denji-demo",
+  "shot_id": "shot_001",
+  "prompt": "In the Public Safety Devil Hunters HQ briefing room (Morning); Flickering cold fluorescent lights, scuffed metal briefing table, thin haze of cigarette smoke. Mood: Tense and unruly. ID_A is Denji: Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie. Voice: brash raspy youthful tenor. ID_B is Power: Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth. Voice: loud shrill theatrical soprano. ID_C is Aki Hayakawa: Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit. Voice: low measured serious baritone. ID_B Stands atop the steel table with fists planted on her hips, grinning arrogantly down at Denji. — \"Gwahaha! Bow, mongrel! Even the silent monster ignores your pathetic squeaks!\" ID_A Bares his sharp teeth and shakes a clenched fist back at Power. — \"Shut up, horned freak! I'm gonna beat tomorrow's training so hard everybody cries!\" ID_C Grabs the scruff of Denji's collar with one hand while stubbing out his cigarette in a metal tray. — \"Shut up, both of you. You're assigned to my apartment. Move.\" Camera: medium shot, low-angle slow push-in; smoky fluorescent glare catching the scuffed metal table beneath Power's boots. Everyone keeps the same face, hair, and clothes throughout; realistic live-action, lips synced to speech. No subtitles, captions, on-screen text, or writing.",
+  "condition_img": null,
+  "memory_slots": [],
+  "num_frames": 241,
+  "width": 1280,
+  "height": 736,
+  "seed": 42,
+  "duration_sec": 9.64
+}

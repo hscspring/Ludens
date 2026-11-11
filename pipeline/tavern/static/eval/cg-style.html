@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ludens · 游戏 CG 画风对照</title>
+<style>
+*{box-sizing:border-box}body{margin:auto;padding:24px;max-width:1500px;background:#171513;color:#eee6db;font:16px/1.6 system-ui}p{color:#c3b9ac}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:20px}figure{margin:0;padding:16px;background:#25211d;border-radius:12px}h2{font-size:19px;margin:0 0 10px}img{display:block;width:100%;height:450px;object-fit:contain;background:#100f0e}a{color:#edbf79}figcaption{margin-top:12px}small{color:#c3b9ac}summary{cursor:pointer}footer{margin-top:24px}
+</style>
+<h1>游戏 CG 画风对照</h1>
+<h2>本轮：保持质感，同时区分人物面貌</h2>
+<p>已有角色卡外貌设定的少量样张，每条为单一种子。当前观察：质感与面貌可分别改变，但通用画风迁移尚未通过；以下不是已经上线的角色素材。</p>
+<main>
+<figure><h2>Georeo · 课堂</h2><a href="/live-assets/cg_style_20261010/georeo_identity_refine.png" target="_blank"><img src="/live-assets/cg_style_20261010/georeo_identity_refine.png" alt="Georeo黑发、深色眼睛与略带笑意的课堂样张"></a><figcaption>从已认可的课堂图继续改身份。黑发、深色眼睛和笑意有变化，质感保留，但脸型仍很像参考；嘴角也比原卡的轻微笑意更夸张。<br><a href="/live-assets/cg_style_20261010/georeo_identity_refine_request.json">完整输入</a></figcaption></figure>
+<figure><h2>Hozumi · 车内</h2><a href="/live-assets/cg_style_20261010/hozumi_identity_refine.png" target="_blank"><img src="/live-assets/cg_style_20261010/hozumi_identity_refine.png" alt="长黑发、淡紫眼睛、黑西装的Hozumi车内样张"></a><figcaption>从原始男性参考改为女性。长发、紫眼、西装、领带和项链可见，泪痕问题已消失；面貌有区分，但整体偏写实、皱眉较重。<br><a href="/live-assets/cg_style_20261010/hozumi_identity_refine_request.json">完整输入</a></figcaption></figure>
+<figure><h2>Ethan · 卧室外貌样张</h2><a href="/live-assets/cg_style_20261010/ethan_identity.png" target="_blank"><img src="/live-assets/cg_style_20261010/ethan_identity.png" alt="灰色三件套西装的Ethan坐在床边"></a><figcaption>取自30张原始角色卡，按welcome末尾卧室处境测试。脸型与参考有区分，布料细节较好，但更像真人、显成熟，且多出一枚戒指。尚不满足目标CG画风。<br><a href="/live-assets/cg_style_20261010/ethan_identity_request.json">完整输入</a></figcaption></figure>
+</main>
+<details><summary>查看本轮第一版的退步与错误</summary><main>
+<figure><h2>Georeo · 直接重设计</h2><a href="/live-assets/cg_style_20261010/georeo_identity.png" target="_blank"><img loading="lazy" src="/live-assets/cg_style_20261010/georeo_identity.png" alt="直接重设计后退回动漫风的Georeo"></a><figcaption>直接要求迁移画风并重设计人物，表面细节减少，重新出现较强轮廓线。<a href="/live-assets/cg_style_20261010/georeo_identity_request.json">完整输入</a></figcaption></figure>
+<figure><h2>Hozumi · 直接重设计</h2><a href="/live-assets/cg_style_20261010/hozumi_identity.png" target="_blank"><img loading="lazy" src="/live-assets/cg_style_20261010/hozumi_identity.png" alt="第一版Hozumi出现了不符合情绪要求的泪痕"></a><figcaption>回到较卡通的材质，出现原设定当前情绪不要求的泪痕。<a href="/live-assets/cg_style_20261010/hozumi_identity_request.json">完整输入</a></figcaption></figure>
+</main></details>
+<h2>上一轮：质感方向</h2>
+<p>同一课堂设定，测试现有 FLUX.2 Klein 4B 能否迁移参考质感。点击图片查看原图；这些是画风样张，尚未替换可玩场景。</p>
+<main>
+<figure><h2>目标参考</h2><a href="/live-assets/cg_style_20261010/reference.png" target="_blank"><img src="/live-assets/cg_style_20261010/reference.png" alt="冷光下的半写实虚拟男性参考"></a><figcaption>Sean 确认的质感方向。取自之前 p.mp4 参考相关测试的保存帧，未将其作为课堂内容要求。</figcaption></figure>
+<figure><h2>只改文字提示</h2><a href="/live-assets/cg_style_20261010/classroom_cg_refined.png" target="_blank"><img src="/live-assets/cg_style_20261010/classroom_cg_refined.png" alt="纯文本生成的课堂 CG 样张"></a><figcaption>有体积和光影，脸与头发仍偏动画电影。</figcaption></figure>
+<figure><h2>参考画风，重新设计人物</h2><a href="/live-assets/cg_style_20261010/classroom_reference.png" target="_blank"><img src="/live-assets/cg_style_20261010/classroom_reference.png" alt="输入参考后重新设计的课堂人物"></a><figcaption>穿着与课堂设定遵循，参考中的细腻面部质感保持不足。</figcaption></figure>
+<figure><h2>保留面部刻画，换装换场景</h2><a href="/live-assets/cg_style_20261010/classroom_reference_preserve.png" target="_blank"><img src="/live-assets/cg_style_20261010/classroom_reference_preserve.png" alt="保留参考面部刻画的课堂样张"></a><figcaption>皮肤与光影更接近参考，但也继承了参考人物面貌，且更偏写实。Sean 反馈：“好多了”。质感方向获认可，不同角色的面貌迁移仍待验证。</figcaption></figure>
+</main>
+<p>后两张直接输入同一参考图，使用同一编辑接口与默认种子，仅改变指令。参考图编辑输出为 736×1280，纯文字样张为 672×384；尺寸、构图和光照并不完全一致，不能作为严格画质排名。</p>
+<details><summary>查看完整测试指令</summary><p><a href="/live-assets/cg_style_20261010/request_refined.json">纯文字</a> · <a href="/live-assets/cg_style_20261010/reference_request.json">参考画风</a> · <a href="/live-assets/cg_style_20261010/reference_preserve_request.json">保留面部刻画</a></p></details>
+<footer><a href="/static/eval/index.html">评测导航</a> · <a href="/">返回故事</a></footer>
+</html>

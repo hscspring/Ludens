@@ -46,12 +46,14 @@ class Flux2Renderer:
             generator=self._gen(seed),
         ).images[0]
 
-    def edit(self, prev_image: Image.Image, instruction: str, seed: int = 42) -> Image.Image:
+    def edit(self, prev_image: Image.Image, instruction: str, seed: int = 42,
+             size: tuple[int, int] | None = None, identity: Image.Image | None = None) -> Image.Image:
+        width, height = size or self.size
         return self.pipe(
-            image=prev_image,
+            image=[prev_image, identity] if identity is not None else prev_image,
             prompt=instruction,
-            width=self.size[0],
-            height=self.size[1],
+            width=width,
+            height=height,
             guidance_scale=FLUX2_GUIDANCE,
             num_inference_steps=FLUX2_STEPS,
             generator=self._gen(seed),

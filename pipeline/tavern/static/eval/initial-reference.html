@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LUDENS · 初始图与当前状态</title>
+<style>*{box-sizing:border-box}body{max-width:1450px;margin:auto;padding:26px;background:#171513;color:#eee6db;font:16px/1.65 system-ui}a{color:#edbf79}p,figcaption{color:#c3b9ac}h1{font-size:30px}h2{font-size:22px;margin-top:30px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}figure{margin:0;background:#25211d;border:1px solid #4a4035;border-radius:12px;padding:14px}h3{margin:0 0 10px;font-size:18px}img{width:100%;display:block}figcaption{margin-top:10px}details{margin:24px 0}summary{cursor:pointer}.note{padding:14px;background:#25211d;border-left:3px solid #aa8a5d}@media(max-width:700px){body{padding:14px}.grid{grid-template-columns:1fr}}</style>
+<a href="index.html">← 评测目录</a><h1>每一张都从初始图出发</h1><p>固定同一张开场图，分别输入这一刻完整的角色与物品状态。三张输出互不作为下一张的输入，不累积上轮编辑损耗。</p>
+<p class="note">本组“收起 → 放在座位 → 戴回”已通过当前物品状态识别。单次生成仍会改变画风、脸部与布料细节，识别通过不等于审美验收通过；座位上领带的折叠形态尤其需要看原图判断。</p>
+<section class="grid" id="pictures"></section>
+<h2>物品在画面外，也能继续互动</h2><p>以下为隔离的前端测试状态截图：收起的领带保留在物品栏，没有画面热点；点击“戴回领带”先填入意图草稿，发送后由角色回应确认。物品变化写入故事手记。</p><section class="grid" id="ui"></section>
+<h2>真实文本模型 · 收起后再戴回</h2><p>使用单独测试对话：角色已提出想松开领带。三轮分别要求收好、先不拿出、重新戴好；模型输出的物品更新为“画面外 → 无更新 → 重新穿戴”。这是实际模型结果，图片上方的三种状态另作受控测试。</p>
+<details><summary>查看真实回复与状态</summary><pre id="story" style="white-space:pre-wrap"></pre></details>
+<details><summary>早期失败样张与测试口径</summary><p>早期直接输入中文状态 JSON，出现了车窗文字、领带变成布料堆的问题；后来改成简短英文物理状态，并完整保留未改变的配饰。中间漏写项链状态，也造成项链丢失。保留这些图供比较。</p><section class="grid" id="failures"></section><p>FLUX.2 Klein 4B，672×384，4步，seed 42，183 GPU 0。当前三张图片请求约0.57–0.59秒，不包含故事模型和物品定位耗时。不同版本提示词不同，不能把差异全部归因于参考图来源。</p><p><a href="/live-assets/initial_reference_20261014/complete_results.json">完整当前状态和结果</a> · <a href="/live-assets/initial_reference_20261014/story_results.json">真实文本模型测试</a> · <a href="identity-reference.html">上一组单参考 / 双参考</a></p></details>
+<script>
+const base='/live-assets/initial_reference_20261014/';
+const figure=(title,url,caption)=>`<figure><h3>${title}</h3><a href="${url}" target="_blank" rel="noopener"><img src="${url}" alt="${title}"></a><figcaption>${caption}</figcaption></figure>`;
+document.querySelector('#pictures').innerHTML=figure('固定参考 · 开场图','/live-assets/hozumi/frame.webp','每次生成都只使用这张图。')+figure('状态一 · 收进西装内袋',base+'stored_complete/expression.webp','领带不可见，项链保留；物品仍存在于故事状态。')+figure('状态二 · 放在旁边座位上',base+'seat_complete/expression.webp','领带不再穿戴，出现在右侧座位；折叠形状仍有生成误差。')+figure('状态三 · 重新戴好',base+'worn_complete/expression.webp','领带回到领口，座位上不再有领带。');
+document.querySelector('#ui').innerHTML=figure('物品栏 · 隐藏物品仍可操作',base+'inventory-ui.png','前端测试状态，非线上用户会话。')+figure('故事手记 · 记录状态变化',base+'journal-ui.png','完整对话照常保留；手记摘录重要交流与物品变化。');
+document.querySelector('#failures').innerHTML=figure('早期失败 · 领带变大、车窗多字',base+'seat/expression.webp','直接塞入中文状态 JSON 的版本。')+figure('中间版本 · 项链漏画',base+'stored_english/expression.webp','只写改变的领带，缺少完整配饰状态。');
+fetch(base+'story_results.json').then(r=>r.json()).then(rows=>{document.querySelector('#story').textContent=rows.map((r,i)=>`第 ${i+1} 轮
+你：${r.input}
+Hozumi：${r.reply.line}
+物品变化：${JSON.stringify(r.reply.object_updates,null,2)}`).join(`
+
+`);});
+</script></html>

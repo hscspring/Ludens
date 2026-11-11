@@ -1,0 +1,12 @@
+{
+  "work_id": "ludens-denji-demo",
+  "shot_id": "shot_002",
+  "prompt": "In the Public Safety Devil Hunters HQ hallway (Evening); Harsh green-tinted fluorescent corridor with concrete walls and distant footsteps. Mood: Tense. ID_A is Denji: Lanky 6'0 teen with messy blond hair, sharp brown eyes, wearing a wrinkled white collared shirt and black tie. Voice: brash raspy youthful tenor. ID_B is Power: Long blonde hair tinted pink/red, golden cross-patterned eyes, prominent red horns, and sharp fanged teeth. Voice: loud shrill theatrical soprano. ID_C is Aki Hayakawa: Tall 6'0 man with black hair tied into a topknot, tired blue eyes, dressed in a formal black suit. Voice: low measured serious baritone. ID_B Shoves past Denji roughly, barging toward the exit. — \"I ride in front! The greatest driver in Japan demands shotgun!\" ID_A Tugs Aki's sleeve frantically, glancing back nervously toward the briefing doors. — \"Hey! Aki, tell me about that freak in the corner! Are they really that strong?!\" ID_C Swats Denji's hand away and keeps walking with a dark scowl. — \"Hands off. And if you value your neck, you won't bring them up again.\" Camera: medium shot, handheld follow; flickering green fluorescent corridor casting hard shadows against scuffed concrete. Everyone keeps the same face, hair, and clothes throughout; realistic live-action, lips synced to speech. No subtitles, captions, on-screen text, or writing.",
+  "condition_img": null,
+  "memory_slots": [],
+  "num_frames": 241,
+  "width": 1280,
+  "height": 736,
+  "seed": 42,
+  "duration_sec": 9.64
+}

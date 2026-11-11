@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUDENS · Hozumi 身份保持对照</title>
+<style>
+*{box-sizing:border-box}body{margin:auto;padding:24px;max-width:1500px;background:#171513;color:#eee6db;font:16px/1.65 system-ui}a{color:#edbf79}h1{font-size:30px}h2{font-size:22px;margin:28px 0 12px}h3{font-size:17px;margin:0 0 10px}p,figcaption{color:#c3b9ac}.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}figure{margin:0;padding:14px;background:#25211d;border:1px solid #4a4035;border-radius:12px}img{display:block;width:100%;height:auto}.face{width:220px;height:210px;overflow:hidden;margin:12px auto 0;border:1px solid #4a4035}.face img{width:1344px;max-width:none;transform:translate(-230px,-4px)}figcaption{margin-top:10px}details{margin:24px 0}summary{cursor:pointer}.note{border-left:3px solid #aa8a5d;padding:10px 18px;background:#25211d}@media(max-width:740px){body{padding:14px}.pair{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+<header><a href="index.html">← 评测目录</a><h1>Hozumi · 人物会不会越改越偏？</h1><p>左侧：只参考上一轮图片。右侧：上一轮图片 + 固定开场身份图。每条路线连续编辑三轮，下一轮使用各自上一轮的输出。</p></header>
+<p class="note">当前观察：双参考较好保留了紫色眼睛，面部形状相对接近原设定，但仍有卡通化、笑容过大的问题。仅这一角色、这一种子的结果，尚未接入游玩。</p>
+<h2>两张输入 · 固定身份与当前状态</h2><section class="pair" id="inputs"></section>
+<main id="rounds"></main>
+<h2>状态冲突测试 · 领带已经摘下</h2><p>先用模型生成无领带的当前状态；身份参考仍是戴领带的开场图。观察下一次表情编辑会不会把领带加回来。两条路线本次都没有恢复领带。</p><section class="pair" id="state-input"></section><section class="pair" id="state-results" style="margin-top:18px"></section>
+<details><summary>测试口径、耗时与完整输入</summary><p>FLUX.2 Klein 4B · 672 × 384 · 4 步 · seed 42 · 183 / GPU 0。双参考额外加入图片职责说明，测试的是整套方案，并非只改变图片数量。人物局部是同一张结果的 2 倍显示，没有另行生成。</p><p>单参考三轮：0.41 / 0.41 / 0.39 秒；双参考：7.35 / 0.54 / 0.54 秒。双参考首轮受服务启动后的预热影响，不宜直接比较。无领带编辑：0.42 / 0.55 秒。均为图片编辑 HTTP 请求耗时，不含剧情生成与物品定位。</p><p>无领带起点本身也改变了项链细节；本项只验证后续是否恢复领带，尚未验证移动、遮挡和长轮次状态保持。</p><p><a href="/live-assets/identity_reference_20261014/config.json">配置与参考路径</a> · <a href="/live-assets/identity_reference_20261014/single.json">单参考逐轮指令</a> · <a href="/live-assets/identity_reference_20261014/dual.json">双参考逐轮指令</a> · <a href="/live-assets/identity_reference_20261014/state_setup.json">状态准备</a> · <a href="/live-assets/identity_reference_20261014/state.json">状态测试</a> · <a href="/live-assets/identity_reference_20261014/observations.json">观察记录</a></p></details>
+<script>
+const base='/live-assets/identity_reference_20261014/';
+const figure=(title,file,caption)=>`<figure><h3>${title}</h3><a href="${base+file}" target="_blank" rel="noopener"><img src="${base+file}" alt="${title}"></a><div class="face" aria-label="人物局部放大"><img src="${base+file}" alt="${title}的面部细节"></div><figcaption>${caption}</figcaption></figure>`;
+document.querySelector('#inputs').innerHTML=figure('固定身份 · 开场原图','original.webp','仅双参考路线每轮额外读取这张图。')+figure('共同起点 · 实际游玩中的画面','start.png','已经发生过多轮编辑，用它检验能否抑制继续漂移。');
+const labels=['稍微放松，耐心倾听','轻微不悦，嘴唇抿紧','眉头放松，极轻微的闭嘴笑'];
+document.querySelector('#rounds').innerHTML=labels.map((label,i)=>`<h2>第 ${i+1} 轮 · ${label}</h2><section class="pair">${figure('单参考',`single_${i+1}.png`,'只输入本路线的上一轮图片。')}${figure('双参考',`dual_${i+1}.png`,'输入本路线上一轮图片，同时固定开场身份图。')}</section>`).join('');
+document.querySelector('#state-input').innerHTML=figure('当前状态 · 领带已摘下','state_start.png','独立状态测试起点；没有影响线上故事。')+figure('身份参考 · 仍然戴领带','original.webp','只提供人物身份，不应该恢复这里的物品状态。');
+document.querySelector('#state-results').innerHTML=figure('单参考 · 编辑微笑之后','state_single.png','领带没有恢复。')+figure('双参考 · 编辑微笑之后','state_dual.png','领带没有恢复，微笑依然偏大。');
+</script></html>

@@ -16,3 +16,15 @@ __pycache__/
 
 # 渲染图
 *.png
+*.jpg
+*.jpeg
+*.webp
+
+# 音视频与实验输出
+*.mp3
+*.mp4
+*.wav
+*.lock
+*.ses
+pipeline/tavern/static/*-20*/
+research/smoke_out/

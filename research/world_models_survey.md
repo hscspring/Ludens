@@ -1,5 +1,7 @@
 # 世界模型调研:面向回合制交互式叙事角色扮演的可玩底座
 
+> **2026-09-22 更新：** 当前产品已转向即时点选交互与异步角色反馈，以下“每轮等视频”的早期假设不再作为实现依据。最新模型复核见 [固定微场景调研更新](world_models_update_20260922.md)：LingBot 1.3B 已发布；SolarWM-H3 有新阶段权重；本地 Echo-WM Flash 尚需补测。历史 FPS 与一致性结论不可当作当前酒馆实测。
+
 > 记录 2026-09-04。融合四路调研:①开源可跑(证据级实查) ②前沿闭源对标 ③叙事文本驱动 ④分类校准。
 >
 > **⚠️ 可信度分层(本文最重要的一件事):**
@@ -50,6 +52,39 @@ Ludens 图片壳 demo(`demo-image-shell` 分支)被判"顶多算玩具":每帧�
 
 ---
 
+## 陆续新增:用户持续投喂的新模型(2026-09-07 起,滚动追加)
+
+> Sean 会陆续甩来新发布的世界模型链接,这里逐个按同一把尺子(**LIVE × 叙事驱动 × 跨拍锁身份 × 开放可跑**)
+> 记一笔并给"**记录 / 试**"判定。绝大多数是"记录备查"——真正过三难初筛的才升进上面的核实流程。新条目往表里追加即可。
+
+| 模型 | 记录日 | 档 | 控制输入 | 跨拍身份 | 叙事 / 语音 | 开放 / 许可 | 对 Ludens 判定 |
+|---|---|---|---|---|---|---|---|
+| **SolarWM** | 09-07 | **LIVE**(长时长,分钟/小时级 rollout) | 相机轨迹 + 文本 | ❌ | ❌ / ❌ | 代码 Apache-2.0;权重 HF(部分底座 LTX-2.5 / MiniMax-H3 社区许可,地域+商用受限) | **记录**:未来"世界连续性层"真候选(真·实时长时长),但无身份/叙事/唇形,非角色叙事模型 |
+| **Puffin-World** | 09-07 | **OFFLINE**(交互仅轨道浏览预建点云) | 文本 + 相机位姿 + 初始图 | ❌(演示全空房间,无人) | ❌ / ❌ | 代码 + HF 模型 + 数据集有链接,**许可未标** | **记录(仅备查)**:环境/几何类,离 Ludens 比 SolarWM 更远 |
+| **MiniMax-H3**(本体,官方) | 09-11 | **OFFLINE**(4–15s clip 出片,非 live) | 文/图/视频/音频多模态参考(Ref2VA ≤9图+≤3视频+≤3音频)、首尾帧(FL2VA) | ✅**强**(多参考图钉外形 + video-to-video 可续接) | ✅原生视频+32k立体声+语音,**11 语种含中文** | 权重开(HF,508万下载/likes 全 org 第一);**minimax-h3 社区许可**(商用审);2K 需闭源 Context-IR+Regenerate-2K API | **记录+重点盯**:当前最强开源 OMNI 出片底座;本机 H100×4 跑得动 H3-Base(768p);比 JoyAI-Echo 更强的参考锁身份 + 原生音频 + 多语种。**非 live,是高质量 clip 出片** |
+
+- **SolarWM**(junchao-cs.github.io/SolarWM-Web;arXiv/HF 见项目页,未二次核对 ID):开放**长时长实时**视频世界模型,
+  5s clip 训练 → 分钟/小时级 rollout。4 个 backbone 5B–33B(Wan2.2 / LTX-2.5 / MiniMax-H3),含蒸馏 "Wan-5B Causal Student (4 steps)";
+  数据集 1.43M clips / 25TB。控制**只有相机轨迹 + 文本**,无身份锚 / 叙事 / 唇形;**FPS / 显存均未公布**。
+  **定位:跨拍世界连续性层的真候选(值得盯),但落不到角色叙事主线。**
+- **Puffin-World**(kangliao929.github.io/projects/puffin-world):**离线**;把重力/地平线/稠密深度当"原生世界状态",
+  相机控制**物理接地**;一模型统一感知 + 自由视角仿真 + 重建。架构=几何对齐视觉编码器 + LLM + 扩散 + 轻连接器
+  (参数量/底座/显存未标);数据 Puffin-16M(15M vision-language-camera triplets + 1M 相机轨迹)。演示全是空室内场景,
+  **无人物/对话/语音**。**定位:相机自洽的空场景/环境生成器,与角色叙事无关,仅备查。**
+
+### MiniMax-H3(本体 · 2026-09-11 亲自核实:HF API + README + tree size)
+
+- 页/仓:`hf.co/MiniMaxAI/MiniMax-H3` · `github.com/MiniMax-AI/MiniMax-H3` · `hailuoai.video`。**≠ H3-World / SolarWM**——那俩是拿 H3 当底座的第三方世界模型;这里是**官方通用 omni 视频生成本体**(别混)。
+- 定性:`image-text-to-video` 的 omni 生成系统,吃 文/图/视频/音频 混合,出**自带 32kHz 立体声的视频**;4–15s / 24FPS / 短边 768p(2K 需 Regenerate)。稳定 11 语种对话(**含中文**)。
+- 规模(实测 tree,全仓 **498.5GB** = FL2VA+Ref2VA+顶层+ref 四套叠一起;单任务族 **~150GB**):核心 **H3-Omni-Transformer = 33B dense single-stream**(~66GB/套 BF16),**text encoder = Qwen3-VL-32B**(取第 50 层,~68GB/套),video_vae 10.4GB + vae 15GB。
+- 三模块:**H3-Context-IR**(自由多模态输入→结构化 Context Intermediate Representation,**闭源**,要调官方 API 或按 prompting guidance 自建)+ **H3-Base**(开源,出 768p)+ **H3-Regenerate-2K**(768p+原始上下文→升 2K,靠 API)。原生支持稀疏注意力,但**首个开源版只放 full-attention 推理**。
+- 部署:官方推荐 **SGLang / vLLM,`--num-gpus 4`**;有 vllm recipes + sglang cookbook。BF16。
+- 许可:`minimax-h3-community-license`(社区版,商用/公开须审条款);内容有官方审核护栏。
+- 对 Ludens(三难):**锁身份 ✅✅**(Ref2VA ≤9 参考图,比 JoyAI-Echo memory_slots 更强)· **首帧→视频 ✅**(FL2VA 首帧模式,正好接我们"离线开场图当 condition_img 首帧")· **原生音视频 + 11 语种 ✅✅**(中文可能救回来)· **跨拍连续 ?**(有 video-to-video,可拿上一 clip 尾续下一 clip,待验)· **LIVE ❌**(clip 出片非实时交互流,区别于 Matrix-Game-2.0)。
+- **本机可行性(H100 80G×8 已确认)**:H3-Base 单族 ~150GB / 官方 4 卡(4×80=320GB)本机富余,3 卡(240GB)也够。门槛=①下载(单族 ~150GB / 全量 498GB,**大规模下载须 Sean 授权**);②2K 靠闭源 API,本地到 768p;③license 商用审。**定位:OFFLINE 高质量出片底座头号候选,值得实跑 smoke。**
+
+---
+
 ## 核实结果(2026-09-04 逐条实拉,`verify_sources.sh` + README 实读)
 
 ### 第 1 层:存在性 —— **全部真实,无一编造(推翻我原来的"高编造风险"担忧)**
@@ -64,7 +99,7 @@ Ludens 图片壳 demo(`demo-image-shell` 分支)被判"顶多算玩具":每帧�
 | 模型 | 核实结论 | 相对原判 |
 |---|---|---|
 | **Matrix-Game 2.0** | ✅**站住**:`inference_streaming.py` 是真交互流式脚本(vs batch `inference.py`);**25fps 实时**、键鼠输入;**单卡 ≥24GB,A100/H100 tested、不需多卡**;传**任意图**当起始世界;**MIT**。底座 SkyReels-V2(参数量未标)。**无叙事/文本控制**(证实需 LLM→action 桥)。**跨帧记忆 2.0 未提**(>1min 记忆是 3.0 的特性)。 | 维持首选 |
-| **DreamX-World-5B** | ✅**升级(B→已核实)**:Apache-2.0;权重已发(HF GD-ML/DreamX-World-5B/-5B-Cam,需另下 Wan2.2-5B-TI2V 底座);**单卡装得下**(1×H20 峰值 38/40/72G,80G 够);**NL 事件 + 相机驱动**;**几何记忆检索** + 训练"缓解 identity/背景/风格/颜色漂移"(比原判"无身份锚"强,但named-character 脸锁未明说)。**但非实时**:5s@720P 要 26s、60s 要 342s → **慢速批渲,正好回合制,不是 live**。 | 上调:比预期可信 |
+| **DreamX-World-5B** | ✅**升级(B→已核实)**:**MIT**(原记 Apache 有误,09-05 纠正);权重已发(HF GD-ML/DreamX-World-5B/-5B-Cam,需另下 Wan2.2-5B-TI2V 底座);**单卡装得下**(1×H20 峰值 38/40/72G,80G 够);**NL 事件 + 相机驱动**;**几何记忆检索** + 训练"缓解 identity/背景/风格/颜色漂移"(比原判"无身份锚"强,但named-character 脸锁未明说)。**但非实时**:5s@720P 要 26s、60s 要 342s → **慢速批渲,正好回合制,不是 live**。 | 上调:比预期可信 |
 | **H3-World** | ⚠️**降级**:底座 MiniMax-H3 **33B / ~135GB,单卡 80G 装不下**(默认 4 卡);`infer.py` **批渲** 5.2s、无实时 loop;控制是**移动预设**(still/forward/strafe/pan→latent 语言指令),`--scene-prompt` 静态,**自由叙事直驱"未说明"** → 实为**移动世界模型,非叙事驱动**;**无 LICENSE 文件**;LoRA 权重已发(hf DANNY621/H3-World step-10000.safetensors,65.6M)。 | 下调:比 memory 预期弱 |
 | **JoyAI-Echo-1.5** | ✅**黑马 + 纠错**:实为**两个项目**——**Echo-WM**(交互世界模型!LTX-2.3 底、`echo_wm/inference_wm.py` Gradio demo、导航→6-DoF 相机、**视频+环境音+音乐+语音齐生**)+ **Echo-LongVideo**(10+min 多镜批渲)。**反幻灯片机制全场最强**:"composable cross-shot memory" 跨镜聚合视觉证据 + speaker cue,**同锁角色外形与嗓音身份**;**唯一带语音**。权重已发(HF,62750 下载)。许可=**LTX-2 Community License**(学术/非商用,够用)。**未知:显存/FPS 全无数**(FP8/TensorRT 是 roadmap 非现货)、Director Agent 接口未述。 | 上调:从"纯 OFFLINE"改判,含交互 WM 分支 |
 
@@ -72,6 +107,29 @@ Ludens 图片壳 demo(`demo-image-shell` 分支)被判"顶多算玩具":每帧�
 
 Matrix-Game 参数量/3.0 单卡实时 · **JoyAI-Echo 显存/FPS**(README/arXiv 均未标,需查 HF 或子目录 README)· Incantation 权重是否真未发 ·
 身份适配器(SlotMem/Memento/IAMFlow)实测集成难度 · LingBot 1.3B 单卡变体是否发布 · **LLM→action 桥可行性**(Matrix-Game action 格式能否被 LLM 稳定翻译)。
+
+### 第 3 层:本地权重深核(2026-09-05,5 个模型已下载,读 README/推理脚本源码/config/LICENSE)
+
+**已下载**(`/mnt/local/sean/models/`,共 ~300GiB,脚本 `research/download_models.sh` 断点续传):
+Matrix-Game-2.0 27G · DreamX-World-5B 20G · Wan2.2-TI2V-5B 32G(DreamX 底座) · Echo-WM 89G · JoyAI-Echo 133G。零 incomplete,文件数全对。
+
+| 模型 | 档位 | 单卡推理峰值 | 单卡 80G | 控制面 | 许可 | 反幻灯片 | FPS |
+|---|---|---|---|---|---|---|---|
+| **Matrix-Game-2.0** | **LIVE**(`inference_streaming.py` 真流式) | ~11G(蒸馏6.1+CLIP4.5+VAE0.5) | 轻松 | WASD+鼠标,**无 NL 叙事** | **MIT** | 帧级自回归 ObjConsist 0.64;**无跨拍 ID bank** | **25** |
+| **DreamX-World-5B** | **OFFLINE**(action_seq 预写死,中途不可注入) | ~34G(+Wan 底座 T5/VAE) | 可 | 相机键序预设+场景文本 | **MIT**(纠正) | KV cache+PRoPE 空间记忆;**无 character ID 锁** | 16 |
+| Wan2.2-TI2V-5B | OFFLINE | 32.5G | 轻松 | 仅文本/图 | Apache 2.0 | 无 | 24 |
+| **Echo-WM** | beat-pace(Flash)/OFFLINE(Base) | **69G**(45G ckpt + Gemma-3-12B 24G) | 紧(贴顶,需 offload) | DSL 相机序列 + **6 场文本(含 Character/Speech)** | LTX-2 Community(学术非商用) | 单 clip 内 Consist **89.8**(榜一);无跨拍 ID bank | **未知** |
+| **JoyAI-Echo** | **OFFLINE 纯批渲** | FP8 52G / BF16 69G(+Gemma-3-12B) | FP8 可 | 文本 + **7-slot memory**;Director Agent(LLM 编剧) | LTX-2 Community | **全场最强**:cross-modal memory 同锁**外形+嗓音**跨镜 | **未知** |
+
+**悬案关闭:** Matrix-Game=**1.8B**(config 确认);DreamX 许可=**MIT**(原记 Apache 有误);Echo-WM/JoyAI 显存已估(见表)。
+**悬案仍开:** Echo-WM / JoyAI **FPS README 均无数**,只能跑 benchmark 或读 arXiv 才知。
+**两个下载缺口(2026-09-05 已补齐):** ①推理代码已 clone 到 `/mnt/local/sean/wm_repos/`(`Matrix-Game` / `DreamX-World` / `JoyAI-Echo`,后者含 `echo_wm` 交互分支 + `echo_longvideo` 批渲分支;脚本 `research/download` 无涉,clone 命令见 memory)。②两个 gemma-3 文字编码器已下(`download_text_encoders.sh`):`gemma-3-12b-it`(JoyAI LongVideo 用)+ `gemma-3-12b-it-qat-q4_0-unquantized`(Echo-WM 用),各 23G,落 `models/`;token=EvilYam@kaonai 有 gated 访问权。**至此代码+权重+文字编码器全齐,任一模型只差 GPU + Sean 发话即可 smoke。** 已知运行入口:Echo-WM=`echo_wm/run_gradio.sh` / `gradio_echo_wm.py` / `inference_wm.py`+`configs/inference_wm_causal.yaml`;JoyAI=`echo_longvideo/inference.py --config configs/inference.bf16.yaml`;Matrix-Game=`inference_streaming.py`(LIVE)/`inference.py`(批渲);DreamX=`inference_ar_forcing.sh/.py`。
+
+**核后重排「三难」(可玩=LIVE交互 × 叙事驱动 × 跨拍锁身份 —— 单个下载模型无全解):**
+- **LIVE 真交互**:只有 Matrix-Game-2.0(键鼠实时,但无叙事、无跨拍 ID)。
+- **跨拍锁身份(外形+嗓音)**:只有 JoyAI-Echo 有显式机制(但纯 OFFLINE,须叠交互层)。
+- **beat-pace + 角色/语音文本条件**:Echo-WM 最接近叙事 RP(Consist 榜一),但动作仍预写死、69G 紧、FPS 未知、非商用。
+- DreamX 深核后**降级**(OFFLINE + 无 ID 锁),方案二核心地位动摇。
 
 ---
 

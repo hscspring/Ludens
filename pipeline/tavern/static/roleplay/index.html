@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ludens · 选择故事</title>
+<link rel="stylesheet" href="/static/roleplay/room.css?v=20261015-home-links">
+<body>
+<canvas id="backdrop" aria-hidden="true" hidden></canvas>
+<header>
+  <a class="brand" href="/">LUDENS<span>角色 · 故事 · 与真实的你</span></a>
+  <nav id="project-links" aria-label="项目资料">
+    <a href="/static/roleplay/guide.html" target="_blank" rel="noopener">产品理念与设计</a>
+    <a href="/static/eval/index.html" target="_blank" rel="noopener">模型评测存档</a>
+    <a class="demo-link" href="/live-assets/playthrough_20261015/gameplay-stage-2m15-v4.mp4" target="_blank" rel="noopener"><span aria-hidden="true">▶</span> 试玩演示</a>
+  </nav>
+  <div class="story-heading" hidden><h1 id="title">选择一段经历</h1><p id="intro"></p></div>
+  <nav class="header-actions" aria-label="故事导航" hidden><div id="sound-controls" hidden><button id="sound-toggle" aria-pressed="false">开启背景音</button><input id="sound-volume" type="range" min="0" max="100" value="35" aria-label="背景音音量" title="背景音音量"></div><button id="choose">选择故事</button><button id="journal-open" hidden>故事手记</button><button id="replay" hidden>回看经历</button><button id="new" hidden>重新开局</button></nav>
+</header>
+<p id="error" role="alert"></p>
+<aside id="entry-status" role="status" aria-live="polite" hidden><span class="thinking">•••</span><strong>正在进入故事…</strong><p id="entry-message">正在准备人物与场景，请稍候。准备好后即可回应。</p></aside>
+<section id="library" aria-labelledby="library-title">
+  <div class="library-heading"><small>LUDENS · Homo Ludens · 正在玩的人</small><h2 id="library-title">Roleplay，以 <em>Play</em> 为核心。</h2><p>走进场景，认识角色，让每一次回应与行动留下痕迹。</p></div>
+  <details class="library-about"><summary>角色、物品与互动 · 了解玩法</summary>
+  <dl class="library-principles" aria-label="我们的设计理念">
+    <div><dt>角色，有自己的立场</dt><dd>靠近、试探或拒绝。在彼此的回应里，发展属于你们的关系。</dd></div>
+    <div><dt>物品，是故事的入口</dt><dd>留意桌上的信、手边的领带。一次查看，也可能引出角色未曾说出口的话。</dd></div>
+    <div><dt>互动，会留下痕迹</dt><dd>说过的话、做过的事，留在对话、场景状态与故事手记里，成为接下来故事的依据。</dd></div>
+  </dl>
+  <p class="library-medium">用互动与图片推进故事；想进一步看看时，再展开视频，或回看共同经历的片段。</p></details>
+  <div class="library-stories-heading"><h3>选择一段经历</h3><a class="button" href="/create">＋ 创建新故事</a></div>
+  <div id="stories"></div>
+</section>
+<section id="opening" hidden aria-labelledby="opening-title">
+  <small>进入故事之前</small><h2 id="opening-title">刚刚发生的事</h2>
+  <p id="opening-text"></p><video id="opening-video" hidden controls playsinline preload="none"></video>
+  <details id="opening-details" hidden><summary>阅读完整前情</summary><p id="opening-full"></p></details>
+  <button id="enter-scene" class="primary">进入场景 · 由你回应 →</button>
+</section>
+<main id="play-area" hidden>
+  <section class="stage-column">
+    <div id="scene">
+      <div id="camera"><canvas id="canvas" width="672" height="384" aria-label="当前故事场景"></canvas><video id="idle" hidden muted playsinline loop></video><svg id="hits" viewBox="0 0 672 384" aria-label="选择人物或物品"></svg><div id="markers"></div></div>
+      <div id="object-menu" hidden><div id="actions"></div><button id="discuss">询问这件物品</button></div>
+      <div class="view-controls"><button id="wide">↖ 收起 · 看全景</button></div>
+      <img id="story-moment" hidden alt="当前剧情时刻">
+      <div id="moment-head" hidden><span id="moment-title"></span><button id="dismiss-moment">回到探索</button></div>
+      <aside id="viewer" hidden aria-labelledby="viewer-title">
+        <div class="viewer-head"><strong id="viewer-title">回看这一刻</strong><button id="close-viewer">返回场景 ×</button></div>
+        <div class="replay-media"><img id="replay-image" alt="这一刻的场景与物品位置" hidden><video id="motion" hidden controls playsinline preload="none"></video></div>
+        <button id="replay-again" hidden>↻ 重新播放</button>
+      </aside>
+    <section id="playback-details" hidden><p id="replay-caption" hidden></p><p id="viewer-note"></p><details><summary>这一刻的内容</summary><p id="replay-text"></p></details><div id="replay-nav"><button id="previous">← 上一刻</button><button id="continuous">连续回放</button><button id="next">下一刻 →</button></div></section>
+    </div>
+
+    <p id="status" role="status"></p>
+  </section>
+      <section id="interaction-dock" aria-label="物品探索">
+        <div id="objects" aria-label="场景中的物品"></div>
+        <p id="object-empty">点击场景中的物品，查看它的故事与可用操作。</p>
+        <div class="panel" id="object-panel" hidden>
+          <div class="object-summary"><small id="visible-label" hidden>眼前所见</small><p id="description"></p><p id="object-hint"></p><p id="object-state"></p></div>
+          <details id="recollections" hidden><summary>你听角色说过</summary><div id="memories"></div><small id="memory-hint"></small></details>
+        </div>
+      </section>
+  <section class="conversation">
+    <div class="chat-head"><div><small>与你在一起</small><strong id="character"></strong></div><span class="presence">● 此刻</span></div>
+    <div class="turn-flow">
+      <div id="reply-status" role="status" hidden><span class="thinking" aria-hidden="true">•••</span> <span id="reply-label">正在回应…</span></div>
+      <div id="events" role="log" aria-live="polite" aria-label="对话记录"></div>
+        <div id="suggestion-area" hidden><div class="dock-heading"><h2>你打算怎样回应？</h2></div><div id="suggestions"></div></div>
+      <button type="button" id="watch" title="不输入新内容，让角色继续回应">让角色继续说 →</button>
+    </div>
+    <form id="chat"><div><textarea aria-label="你的回应" id="text" rows="2" maxlength="1000" placeholder="说说你的想法…"></textarea><button id="send" class="primary" type="submit" aria-label="发送消息" title="发送消息"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-7 18-4-7-7-4 18-7Z M10 14 21 3"/></svg></button></div></form>
+    <small id="chat-hint" role="status"></small>
+  </section>
+</main>
+<dialog id="journal" aria-labelledby="journal-title">
+  <div class="journal-head"><div><small>留住你们之间发生的事</small><h2 id="journal-title">故事手记</h2></div><button id="journal-close" aria-label="关闭故事手记">关闭 ×</button></div>
+  <p class="journal-intro">发现、原话与重要交流留在这里。角色的说法未必是真相；待追问由你标记。</p>
+  <div id="journal-filters" aria-label="筛选手记"><button data-filter="all" aria-pressed="true">全部</button><button data-filter="question" aria-pressed="false">待追问</button><button data-filter="saved" aria-pressed="false">已收录</button></div>
+  <div id="journal-entries"></div>
+  <small class="journal-foot">收录和待追问标记保存在当前浏览器，仅属于这一局。</small>
+</dialog>
+<footer><details><summary>怎么玩</summary><p>你是故事中的参与者，可以解释、追问、拒绝或改变话题。点击场景中的人物、物品查看；选中物品后，动作会围绕它展开。点选回应建议只填写草稿，发送前可以修改。</p><p>文字与场景记录真实进展。视频是对已发生时刻的展开，播放与回放不会改变当前故事。</p><p id="timing"></p></details></footer>
+<script src="/static/roleplay/scene_view.js?v=20261014-state-snapshots"></script>
+<script src="/static/roleplay/scene_audio.js?v=20261012-replay-input"></script>
+<script src="/static/roleplay/scene_journal.js?v=20261014-state-snapshots"></script>
+<script src="/static/roleplay/room.js?v=20261015-home-links"></script>
+</body></html>
